@@ -1,0 +1,8 @@
+{
+  "name": "argentum",
+  "app_id": "f5c767f8",
+  "type": "ionic-angular",
+  "integrations": {
+    "cordova": {}
+  }
+}

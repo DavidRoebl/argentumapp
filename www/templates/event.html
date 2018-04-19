@@ -1,6 +1,8 @@
 <ion-view title="Event" id="page3">
   <ion-nav-buttons side="right" class="has-header">
-    <button class="button button-icon icon ion-android-settings"></button>
+    <a ui-sref="settings()">
+      <button class="button button-icon icon ion-android-settings"></button>
+    </a>
   </ion-nav-buttons>
   <ion-content padding="true" style="background: url(img/QAE2vowVS7WPF5ZwQViO_party.png) no-repeat center;background-size:cover;" class="manual-remove-top-padding has-header">
     <div id="event-credit">
@@ -24,16 +26,21 @@
         <img src="img/wEWOZFYxQwKbP8JrBTov_Bildschirmfoto2018-04-16um11.09.56.png">
         <h2>Drinks bar</h2>
         <p>02:55 13.05.18</p>
-        <div id="">
+        <div class="price_negativ">
           <p>- 7,00</p>
         </div>
         <i class="icon ion-android-attach"></i>
       </ion-item>
     </div>
-  <ion-tabs>
-        <ion-tab [root]="pastEvents">past</ion-tab>
-        <ion-tab [root]="event">current</ion-tab>
-        <ion-tab [root]="futureEvents">future</ion-tab>
-      </ion-tabs>
-  </ion-content>
+    <div class = "tabs tabs-icon-top">
+      <a ui-sref="pastEvents()" class = "tab-item">
+        past
+      </a>
+      <a ui-sref="event()" class = "tab-item active_tab">
+        current
+      </a>
+      <a ui-sref="futureEvents()" class = "tab-item">
+        future
+      </a>
+    </div>
 </ion-view>

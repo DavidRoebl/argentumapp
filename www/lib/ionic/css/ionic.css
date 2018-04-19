@@ -3397,7 +3397,9 @@ body.grade-c {
   -moz-text-size-adjust: none;
   text-size-adjust: none;
   -webkit-transform-origin: left top;
-  transform-origin: left top; }
+  transform-origin: left top;
+
+}
 
 /**
  * Set ms-viewport to prevent MS "page squish" and allow fluid scrolling
@@ -3572,7 +3574,9 @@ ion-infinite-scroll {
  */
 p {
   margin: 0 0 10px;
-  font-size: 18px;}
+  font-size: 18px;
+  color: #666666 !important;
+  font-family: Helvetica;}
 
 small {
   font-size: 85%; }
@@ -3639,7 +3643,10 @@ h6, .h6 {
   margin-bottom: 10px; }
 
 h1, .h1 {
-  font-size: 36px; }
+  font-size: 36px;
+  color: #666666 !important;
+  font-family: Helvetica;
+  font-weight: 500;}
 
 h2, .h2 {
   font-size: 30px; }
@@ -9839,13 +9846,15 @@ a.button {
   margin: 0px 30px 0px 30px;
 }
 
+
 #event-credit {
+  padding: 20px 0px 20px 0px;
+  margin: 0px;
   background-image: url("../../../img/elipse.png");
   background-repeat: no-repeat;
-  padding: 30px 0px 20px 0px;
-  margin: 0px !important;
+  margin: auto !important;
   width: 100%;
-  height: 50%;
+  height: 35%;
 }
 
 #event-container6 {
@@ -9865,4 +9874,18 @@ ion-tabs {
 .active_tab {
   font-size: 20px !important;
   font-weight: 700 !important;
+}
+
+.price_negativ {
+  float: right;
+  position: absolute;
+  margin: 0px;
+  top: 30px;
+  left: 250px;
+}
+
+.price_negativ p{
+  font-size: 22px;
+  color: darkred !important;
+  font-weight: 400;
 }

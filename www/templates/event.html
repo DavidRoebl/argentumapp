@@ -30,10 +30,15 @@
         <i class="icon ion-android-attach"></i>
       </ion-item>
     </div>
-  <ion-tabs>
-        <ion-tab [root]="pastEvents">past</ion-tab>
-        <ion-tab [root]="event">current</ion-tab>
-        <ion-tab [root]="futureEvents">future</ion-tab>
-      </ion-tabs>
-  </ion-content>
+    <div class = "tabs tabs-icon-top">
+      <a ui-sref="pastEvents()" class = "tab-item">
+        past
+      </a>
+      <a ui-sref="event()" class = "tab-item active_tab">
+        current
+      </a>
+      <a ui-sref="futureEvents()" class = "tab-item">
+        future
+      </a>
+    </div>
 </ion-view>

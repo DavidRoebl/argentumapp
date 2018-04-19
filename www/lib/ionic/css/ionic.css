@@ -4377,7 +4377,9 @@ a.subdued {
       border-bottom: none;
       background-position: top;
       background-size: 100% 1px;
-      background-repeat: no-repeat; } }
+      background-repeat: no-repeat;
+      margin: 0px !important;
+      margin-left: -10px !important;} }
 
 /* Allow parent element of tabs to define color, or just the tab itself */
 .tabs-light > .tabs,
@@ -5133,8 +5135,10 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
 .tabs-icon-top.tabs .tab-item,
 .tabs-icon-bottom > .tabs .tab-item,
 .tabs-icon-bottom.tabs .tab-item {
-  font-size: 10px;
-  line-height: 14px; }
+  font-size: 18px;
+  line-height: 14px;
+  padding: 15px 0px 0px 0px;
+}
 
 .tab-item .icon {
   display: block;
@@ -9856,4 +9860,9 @@ ion-tabs {
 
 #event-heading1 {
   font-size: 60px;
+}
+
+.active_tab {
+  font-size: 20px !important;
+  font-weight: 700 !important;
 }

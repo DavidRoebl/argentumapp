@@ -63,10 +63,16 @@
         <p style="color:#000000;">Beginn: 20.00</p>
       </div>
     </div>
-    <div id="futureEvents-button-bar4" class="button-bar">
-      <a ui-sref="pastEvents()" id="futureEvents-button18" class="button button-stable button-block">past</a>
-      <a ui-sref="event()" id="futureEvents-button19" class="button button-stable button-block">current</a>
-      <button id="futureEvents-button20" class="button button-stable button-block">future</button>
+    <div class = "tabs tabs-icon-top">
+      <a ui-sref="pastEvents()" class = "tab-item">
+        past
+      </a>
+      <a ui-sref="event()" class = "tab-item">
+        current
+      </a>
+      <a ui-sref="futureEvents()" class = "tab-item active_tab">
+        future
+      </a>
     </div>
   </ion-content>
 </ion-view>

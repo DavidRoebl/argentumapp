@@ -5720,7 +5720,7 @@ ion-tabs.tabs-striped.tabs-color-active-dark .tab-item.tab-item-active, ion-tabs
   font-size: 16px; }
   .item h2 {
     margin: 0 0 2px 0;
-    font-size: 16px;
+    font-size: 25px;
     font-weight: normal; }
   .item h3 {
     margin: 0 0 4px 0;
@@ -6669,7 +6669,8 @@ button.item.item-button-right {
   border-radius: 10px; }
   .card .item {
     border-left: 0;
-    border-right: 0; }
+    border-right: 0;
+    border-bottom: 0;}
   .card .item:first-child {
     border-top: 0; }
   .card .item:last-child {
@@ -8641,8 +8642,8 @@ progress {
   .button.button-block, .button.button-full {
     margin-top: 10px;
     margin-bottom: 10px;
-    margin-right: 100px;
-    margin-left: 100px;}
+    margin-left: auto;
+    margin-right: auto;}
   .button.button-light {
     border-color: transparent;
     background-color: #fff;
@@ -8970,7 +8971,7 @@ button.button-block,
 button.button-full,
 .button-full > button.button,
 input.button.button-block {
-  width: 100%; }
+  width: 50%; }
 
 a.button {
   text-decoration: none; }
@@ -9871,6 +9872,48 @@ ion-tabs {
 #event-heading1 {
   font-size: 60px;
 }
+
+#receiptNr1523-markdown39 {
+  padding: 20px 0px 40px 0px;
+}
+
+#receiptNr1523-markdown39 p {
+  padding-left: 10px;
+  margin: auto !important;
+  text-align: center;
+}
+
+.drinks-receipt{
+  margin: 40px 0px 20px 0px;
+}
+
+td {
+  padding: 20px 40px 5px 10px;
+  text-align: left;
+}
+
+.price-drink {
+  text-align: right;
+  padding: 0px 0px 0px 90px !important;
+}
+
+.table-drinks {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+
+.div-button {
+  width: 350px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0px;
+}
+
+.receipt-price {
+  border-top: 1px solid dimgrey;
+} 
 
 .active_tab {
   font-size: 20px !important;

@@ -1,9 +1,6 @@
 <ion-view title="Receipt Nr. 1523" id="page10">
-  <ion-nav-buttons side="left" class="has-header">
-    <button class="button button-icon icon ion-ios-arrow-back"></button>
-  </ion-nav-buttons>
-  <ion-nav-buttons side="right" class="has-header">
-    <button class="button button-icon icon ion-android-settings"></button>
+  <ion-nav-buttons   side="right" class="has-header">
+    <button ui-sref="settings()" class="button button-icon icon ion-android-settings"></button>
   </ion-nav-buttons>
   <ion-content padding="true" style="background: url(img/jMKlEk5MS5KDAvmbf74n_party.png) no-repeat center;background-size:cover;" class="has-header">
     <div class="list card" id="receiptNr1523-card229">
@@ -14,21 +11,37 @@
       <div class="item item-body" id="receiptNr1523-list-item-container6">
         <div id="receiptNr1523-markdown39" class="show-list-numbers-and-dots">
           <p style="margin-top:0px;color:#000000;">Drinks bar</p>
-
           <p style="color:#000000;">23:39 12.05.18</p>
-
-          <p style="color:#000000;">2 Cola Rum 7,00 €</p>
-
-          <p style="color:#000000;">2 Bier 6,00 €</p>
-
-          <p style="color:#000000;">1 G'spritzter 2,00 €</p>
-
-          <p style="color:#000000;">Gesamtsumme 15,00 €</p>
-
           <p style="color:#000000;">Kellner: Herr Huber</p>
+
+         <div class="table-drinks">
+           <table class="drinks-receipt">
+            <tr>
+              <td>2</td>
+              <td>Cola Rum</td>
+              <td class="price-drink">7,00 €</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>G'spritzter</td>
+              <td class="price-drink">2,00 €</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Bier</td>
+              <td class="price-drink">6,00 €</td>
+            </tr>
+            <tr class="receipt-price">
+              <td colspan="2">Gesamtsumme</td>
+              <td class="price-drink">15,00 €</td>
+            </tr>
+          </table>
+         </div>
         </div>
       </div>
-      <button id="receiptNr1523-button36" class="button button-stable button-block">Print</button>
+      <div class="div-button">
+        <button id="receiptNr1523-button36" class="button button-stable button-block">Print</button>
+      </div>
     </div>
   </ion-content>
 </ion-view>

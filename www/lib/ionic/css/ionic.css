@@ -3655,7 +3655,8 @@ h3, .h3 {
   font-size: 24px; }
 
 h4, .h4 {
-  font-size: 18px; }
+  font-size: 24px;
+  color: white !important; }
 
 h5, .h5 {
   font-size: 14px; }
@@ -9888,4 +9889,19 @@ ion-tabs {
   font-size: 22px;
   color: darkred !important;
   font-weight: 400;
+}
+
+.receipt-heading{
+  margin-top: 30px;
+}
+
+.receipt-types-bar{
+  margin: 30px 0px 30px 0px;
+  border-bottom: 1px solid white;
+
+}
+
+.receipt-type {
+  background-color: inherit;
+  color: white !important;
 }

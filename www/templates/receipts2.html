@@ -1,16 +1,16 @@
 <ion-view title="Receipts" id="page8">
-  <ion-nav-buttons side="right" class="has-header">
+  <ion-nav-buttons usi-sref="settings()" side="right" class="has-header">
     <button class="button button-icon icon ion-android-settings"></button>
   </ion-nav-buttons>
   <ion-content padding="true" style="background: url(img/QAE2vowVS7WPF5ZwQViO_party.png) no-repeat center;background-size:cover;" class="manual-remove-top-padding has-header">
-    <div id="receipts2-container10">
-      <h5 id="receipts2-heading4" style="color:#000000;text-align:center;">Sommerfest Hagenberg</h5>
+    <div id="receipts2-container10" class="receipt-heading">
+      <h4 id="receipts2-heading4" style="color:#000000;text-align:center;">Sommerfest Hagenberg</h4>
     </div>
-    <div id="receipts2-container11">
+    <div id="receipts2-container11" class="receipt-types-bar">
       <div id="receipts2-button-bar7" class="button-bar">
-        <a ui-sref="receipts()" id="receipts2-button30" class="button button-light button-block button-clear">all</a>
-        <button id="receipts2-button31" class="button button-light button-block button-clear">debits</button>
-        <a ui-sref="receipts3()" id="receipts2-button32" class="button button-light button-block button-clear">credits</a>
+        <a ui-sref="receipts()" id="receipts2-button30" class="button receipt-type">all</a>
+        <button id="receipts2-button31" class="button receipt-type">debits</button>
+        <a ui-sref="receipts3()" id="receipts2-button32" class="button receipt-type">credits</a>
       </div>
     </div>
     <div class="list card" id="receipts2-card219">

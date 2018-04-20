@@ -9889,3 +9889,12 @@ ion-tabs {
   color: darkred !important;
   font-weight: 400;
 }
+
+#generated-pin {
+  font-size: 18px;
+  padding: 20px 0px 10px 0px;
+}
+
+#settings-form3{
+  padding: 0px 0px 20px 0px;
+}

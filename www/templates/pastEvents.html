@@ -63,10 +63,16 @@
         <p style="color:#000000;">Expenses: 17,00 €</p>
       </div>
     </div>
-    <div id="pastEvents-button-bar3" class="button-bar">
-      <button id="pastEvents-button15" class="button button-stable button-block">past</button>
-      <a ui-sref="event()" id="pastEvents-button16" class="button button-stable button-block">current</a>
-      <a ui-sref="futureEvents()" id="pastEvents-button17" class="button button-stable button-block">future</a>
+    <div class = "tabs tabs-icon-top">
+      <a ui-sref="pastEvents()" class = "tab-item active_tab">
+        past
+      </a>
+      <a ui-sref="event()" class = "tab-item">
+        current
+      </a>
+      <a ui-sref="futureEvents()" class = "tab-item">
+        future
+      </a>
     </div>
   </ion-content>
 </ion-view>

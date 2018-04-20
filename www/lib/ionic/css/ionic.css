@@ -9891,6 +9891,16 @@ ion-tabs {
   font-weight: 400;
 }
 
+
+#generated-pin {
+  font-size: 18px;
+  padding: 20px 0px 10px 0px;
+}
+
+#settings-form3{
+  padding: 0px 0px 20px 0px;
+}
+  
 .receipt-heading{
   margin-top: 30px;
 }
@@ -9904,4 +9914,5 @@ ion-tabs {
 .receipt-type {
   background-color: inherit;
   color: white !important;
+
 }

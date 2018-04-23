@@ -9877,17 +9877,25 @@ ion-tabs {
   font-weight: 700 !important;
 }
 
-.price_negativ {
+.price_receipt {
   float: right;
   position: absolute;
-  margin: 0px;
-  top: 30px;
-  left: 250px;
+  margin: 5px !important;
+  padding: 20px !important;
+  top: 0px;
+  left: 60%;
+
 }
 
-.price_negativ p{
-  font-size: 22px;
+.price_negative {
+  font-size: 22px !important;
   color: darkred !important;
+  font-weight: 400;
+}
+
+.price_positive {
+  font-size: 22px !important;
+  color: green !important;
   font-weight: 400;
 }
 

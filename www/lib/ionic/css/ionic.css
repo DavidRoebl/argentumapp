@@ -9862,11 +9862,6 @@ a.button {
   margin-bottom: 40px !important;
 }
 
-
-ion-tabs {
-  tabsPlacement: bottom;
-}
-
 #event-heading1 {
   font-size: 60px;
 }
@@ -9889,3 +9884,10 @@ ion-tabs {
   color: darkred !important;
   font-weight: 400;
 }
+
+.tabs {
+  overflow: hidden !important;
+  position: fixed !important;
+  bottom: 0 !important;
+}
+

@@ -9860,10 +9860,10 @@ a.button {
 }
 
 
-ion-tabs {
-  tabsPlacement: bottom;
-  position: absolute;
-  bottom: 0px !important;
+.tabs {
+  overflow: hidden !important;
+  position: fixed !important;
+  bottom: 0 !important;
 }
 
 #receiptNr1523-markdown39 {
@@ -9913,20 +9913,26 @@ td {
   font-weight: 700 !important;
 }
 
-.price_negativ {
+.price_receipt {
   float: right;
   position: absolute;
-  margin: 0px;
-  top: 30px;
-  left: 250px;
+  margin: 5px !important;
+  padding: 20px !important;
+  top: 0px;
+  left: 60%;
 }
 
-.price_negativ p{
-  font-size: 22px;
+.price_negativ {
+  font-size: 22px !important;
   color: darkred !important;
   font-weight: 400;
 }
 
+.price_positive {
+  font-size: 22px !important;
+  color: green !important;
+  font-weight: 400;
+}
 
 .event-content {
   color: white;
@@ -9975,3 +9981,30 @@ td {
 .receipt-type {
   background-color: inherit;
   color: white !important;
+}
+
+#scan-input1 {
+  border: 0px !important;
+  color: black !important;
+}
+
+#pw-input {
+  font-size: 30px;
+  color: black !important;
+  font-weight: 500;
+  text-align: center;
+  padding-right: 0px !important;
+}
+
+.amcharts-chart-div a{
+  display: none !important;
+  color: white !important;
+}
+
+.amcharts-chart-div {
+  height: 220px !important;
+}
+
+#chartdiv {
+  height: 270px !important;
+}

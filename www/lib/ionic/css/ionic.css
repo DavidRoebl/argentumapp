@@ -3643,7 +3643,7 @@ h6, .h6 {
   margin-bottom: 10px; }
 
 h1, .h1 {
-  font-size: 36px;
+  font-size: 28px !important;
   color: #666666 !important;
   font-family: Helvetica;
   font-weight: 500;}
@@ -9851,26 +9851,19 @@ a.button {
 
 #event-credit {
   padding: 20px 0px 20px 0px;
-  margin: 0px;
-  background-image: url("../../../img/elipse.png");
-  background-repeat: no-repeat;
   margin: auto !important;
-  width: 100%;
-  height: 35%;
+  background-image: c
 }
 
 #event-container6 {
   margin: auto;
-  margin-bottom: 40px !important;
 }
 
 
 ion-tabs {
   tabsPlacement: bottom;
-}
-
-#event-heading1 {
-  font-size: 60px;
+  position: absolute;
+  bottom: 0px !important;
 }
 
 #receiptNr1523-markdown39 {
@@ -9958,4 +9951,17 @@ td {
   background-color: inherit;
   color: white !important;
 
+}
+
+.amcharts-chart-div a{
+  display: none !important;
+  color: white !important;
+}
+
+.amcharts-chart-div {
+  height: 220px !important;
+}
+
+#chartdiv {
+  height: 270px !important;
 }

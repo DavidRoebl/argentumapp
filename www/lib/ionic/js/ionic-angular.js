@@ -1319,29 +1319,13 @@ function($rootScope, $state, $location, $window, $timeout, $ionicViewSwitcher, $
       });
     },
 
-    /**
-     * @ngdoc method
-     * @name $ionicHistory#nextViewOptions
-     * @description Sets options for the next view. This method can be useful to override
-     * certain view/transition defaults right before a view transition happens. For example,
-     * the {@link ionic.directive:menuClose} directive uses this method internally to ensure
-     * an animated view transition does not happen when a side menu is open, and also sets
-     * the next view as the root of its history stack. After the transition these options
-     * are set back to null.
-     *
-     * Available options:
-     *
-     * * `disableAnimate`: Do not animate the next transition.
-     * * `disableBack`: The next view should forget its back view, and set it to null.
-     * * `historyRoot`: The next view should become the root view in its history stack.
-     *
-     * ```js
-     * $ionicHistory.nextViewOptions({
-     *   disableAnimate: true,
-     *   disableBack: true
-     * });
-     * ```
-     */
+
+    $ionicHistory.nextViewOptions({
+     disableAnimate: false,
+        disableBack: false
+     });
+
+
     nextViewOptions: function(opts) {
       deregisterStateChangeListener && deregisterStateChangeListener();
       if (arguments.length) {

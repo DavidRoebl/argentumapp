@@ -1,18 +1,45 @@
-<!--
-  Generated template for the EventPage page.
+<ion-view title="Event" id="page3">
+  <ion-nav-buttons side="right" class="has-header">
+    <a ui-sref="settings()">
+      <button class="button button-icon icon ion-android-settings"></button>
+    </a>
+  </ion-nav-buttons>
+  <ion-content padding="true" style="background: url(img/QAE2vowVS7WPF5ZwQViO_party.png) no-repeat center; background-size:cover;" class="manual-remove-top-padding has-header">
+    <div id="event-credit">
+      <div id="event-container6">
+        <p style="color:#666666 !important; text-align: center; font-size: 20px;">available credit</p>
+        <h1 style="text-align:center;">15,60 €</h1>
+      </div>
+      <div id="event-markdown7" style="text-align:center;" class="show-list-numbers-and-dots">
+        <h5 style="color:#666666 !important; font-weight: 400;">Sommerfest Hagenberg </h5>
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>event</ion-title>
-  </ion-navbar>
-
-</ion-header>
-
-
-<ion-content padding>
-
-</ion-content>
+        <h5 style="color:#666666 !important; font-weight: 400;">12.05.2018</h5>
+      </div>
+    </div>
+    <div id="event-container7">
+      <div id="chartdiv" style="width: 100%; height: 400px; background-color: #FFFFFF; border-radius: 8px;" ></div>
+    </div>
+    <div class="list card" id="event-card21">
+      <ion-item class="item-avatar item-icon-right" id="event-list-item3" ui-sref="receipts()">
+        <img src="img/wEWOZFYxQwKbP8JrBTov_Bildschirmfoto2018-04-16um11.09.56.png">
+        <h3>Drinks bar</h3>
+        <p>02:55 13.05.18</p>
+        <div class="price_receipt">
+          <p class="price_negative">- 7,00</p>
+        </div>
+        <i class="icon ion-android-attach"></i>
+      </ion-item>
+    </div>
+    <div class = "tabs tabs-icon-top">
+      <a ui-sref="pastEvents()" class = "tab-item">
+        past
+      </a>
+      <a ui-sref="event()" class = "tab-item active_tab">
+        current
+      </a>
+      <a ui-sref="futureEvents()" class = "tab-item">
+        future
+      </a>
+    </div>
+  </ion-content>
+</ion-view>

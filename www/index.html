@@ -60,52 +60,6 @@
     <!-- Only required for Tab projects w/ pages in multiple tabs 
     <script src="lib/ionicuirouter/ionicUIRouter.js"></script>
     -->
-    <!-- amCharts javascript sources -->
-    <script type="text/javascript" src="https://www.amcharts.com/lib/3/amcharts.js"></script>
-    <script type="text/javascript" src="https://www.amcharts.com/lib/3/pie.js"></script>
-
-
-    <!-- amCharts javascript code -->
-    <script type="text/javascript">
-        AmCharts.makeChart("chartdiv",
-            {
-                "type": "pie",
-                "angle": 11.7,
-                "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b> ([[percents]]%)</span>",
-                "depth3D": 8,
-                "innerRadius": 0,
-                "labelRadius": 8,
-                "labelText": "[[percents]]%",
-                "minRadius": 0,
-                "accessibleLabel": "",
-                "outlineThickness": 7,
-                "titleField": "category",
-                "valueField": "column-1",
-                "allLabels": [],
-                "balloon": {},
-                "legend": {
-                    "enabled": true,
-                    "align": "center",
-                    "markerType": "circle"
-                },
-                "titles": [],
-                "dataProvider": [
-                    {
-                        "category": "category 1",
-                        "column-1": 8
-                    },
-                    {
-                        "category": "category 2",
-                        "column-1": 6
-                    },
-                    {
-                        "category": "category 3",
-                        "column-1": 2
-                    }
-                ]
-            }
-        );
-    </script>
 
   </head>
   <body ng-app="app" animation="slide-left-right-ios7">

@@ -14,6 +14,8 @@ export class Dataprovider {
 
 	public static wasInitialized = false;
 
+	public static selectedReceipt: Receipt;
+
 	static initialize(){
 
 		this.wasInitialized = true;

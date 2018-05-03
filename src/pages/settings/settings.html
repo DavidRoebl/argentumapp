@@ -13,7 +13,36 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content no-margin>
 
-	<button ion-button (click)="logout()">logout</button>
+  <ion-card>
+    <ion-card-header>
+      Settings
+    </ion-card-header>
+
+    <ion-list>
+      <button ion-item>
+        Generated PIN: 2568
+      </button>
+
+      <button ion-item>
+        <ion-label> Notification</ion-label>
+        <ion-toggle value checked="false"></ion-toggle>
+      </button>
+
+      <ion-list-header>
+        Limit
+        <ion-badge item-end color="danger">{{saturation}}</ion-badge>
+      </ion-list-header>
+      <ion-item no-margin>
+        <ion-range min="0" max="20" pin="true" [(ngModel)]="saturation" color="danger">
+          <ion-label range-left color="primary">0</ion-label>
+          <ion-label range-right color="primary">20</ion-label>
+        </ion-range>
+      </ion-item>
+
+          </ion-list>
+  </ion-card>
+
+	<button ion-button round margin (click)="logout()">logout</button>
 </ion-content>

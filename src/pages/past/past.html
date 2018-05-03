@@ -17,7 +17,51 @@
 </ion-header>
 
 
-<ion-content padding>
 
-	<button ion-button (click)="doNavigation()">goto: receipts</button>
+
+  <ion-content class="events" no-margin no-padding>
+
+    <ion-card (click)="doNavigation()">
+      <div class="location"><ion-icon name="pin"></ion-icon>
+        Hagenberg
+      </div>
+      <div class="date"><ion-icon name="calendar"></ion-icon>
+        30.05.2018</div>
+      <img src="./assets/imgs/background_yellow.jpg"/>
+      <div class="card-title">Sommerfest</div>
+      <div class="card-subtitle">Expenses: 53,25€</div>
+    </ion-card>
+
+    <ion-card (click)="doNavigation()">
+      <div class="location"><ion-icon name="pin"></ion-icon>
+        Linz
+      </div>
+      <div class="date"><ion-icon name="calendar"></ion-icon>
+        31.05.2018</div>
+      <img src="./assets/imgs/background_yellow.jpg"/>
+      <div class="card-title">Street Food Festival</div>
+      <div class="card-subtitle">Expenses: 26,55€</div>
+    </ion-card>
+
+    <ion-card (click)="doNavigation()">
+      <div class="location"><ion-icon name="pin"></ion-icon>
+        Unterweitersdorf
+      </div>
+      <div class="date"><ion-icon name="calendar"></ion-icon>
+        15.06.2018</div>
+      <img src="./assets/imgs/background_yellow.jpg"/>
+      <div class="card-title">Evers Opening</div>
+      <div class="card-subtitle">Expenses: 18,30€</div>
+    </ion-card>
+
+    <ion-card (click)="doNavigation()">
+      <div class="location"><ion-icon name="pin"></ion-icon>
+        Linz
+      </div>
+      <div class="date"><ion-icon name="calendar"></ion-icon>
+        20.06.2018</div>
+      <img src="./assets/imgs/background_yellow.jpg"/>
+      <div class="card-title">Boatmania</div>
+      <div class="card-subtitle">Expenses: 45,36€</div>
+    </ion-card>
 </ion-content>

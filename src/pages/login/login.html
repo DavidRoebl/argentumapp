@@ -7,11 +7,7 @@
 <ion-header no-border>
 
   <ion-navbar transparent>
-    <ion-buttons [color]="plain-white" end>
-      <button ion-button (click)="openSettings()">
-        <ion-icon name="settings" style="zoom:1.8;" ></ion-icon>
-      </button>
-    </ion-buttons>
+
   </ion-navbar>
 
 </ion-header>
@@ -19,6 +15,29 @@
 
 <ion-content padding>
 
-	<button ion-button (click)="doNavigation()">goto: current</button>
+  <img src="./assets/imgs/scan_Argentum2.png"/>
+
+  <div class="textor">
+    or
+  </div>
+
+  <div class="textpin">
+    Enter your received PIN
+  </div>
+
+
+
+
+    <ion-item margin-top>
+      <ion-label floating >PIN</ion-label>
+      <ion-input type="password"></ion-input>
+    </ion-item>
+
+
+
+
+
+
+	<button ion-button round margin-left (click)="doNavigation()">goto: current</button>
 
 </ion-content>

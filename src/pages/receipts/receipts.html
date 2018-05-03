@@ -14,10 +14,32 @@
     </ion-buttons>
   </ion-navbar>
 
+  <ion-toolbar no-border-top transparent>
+    <ion-segment [(ngModel)]="selection">
+      <ion-segment-button value="all">
+        <div class="textlabels">all</div>
+      </ion-segment-button>
+      <ion-segment-button value="credit">
+        <div class="textlabels">credit</div>
+      </ion-segment-button>
+      <ion-segment-button value="debit">
+        <div class="textlabels">debit</div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let receipt of receipts" no-lines round (click)="onReceiptClick(receipt.id)" [ngStyle]="{'background-color': 'transparent'}">
+      <ion-card>
+        {{receipt.date}} {{receipt.value}} {{receipt.histType}}
+      </ion-card>
+    </ion-item>
+  </ion-list>
 
 
 	<button ion-button (click)="doNavigation()">goto: receipt-detail</button>

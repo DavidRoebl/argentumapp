@@ -1,16 +1,21 @@
 page-current {
 
+.buttontransaction{
+  text-align: center;
+}
+
+
 
    #oval{
     width: 100%;
-    height: 180px;
+    height: 100%;
     background-color: white;
-    -moz-border-radius: 100px / 50px;
-    -webkit-border-radius: 100px / 50px;
-    border-radius: 150px / 30px;
+    border-bottom-left-radius: 150px 30px;
+    border-bottom-right-radius: 150px 30px;
     margin: 0 auto;
-    margin-bottom: 10px;
-    box-shadow: 0px 9px #5A6978;
+    margin-bottom: 20px;
+    box-shadow: 0px 9px #EBEAE8;
+
   }
 
   .credit {
@@ -18,7 +23,6 @@ page-current {
     width: 100%;
     font-weight: bold;
     text-align: center;
-    padding-top: 5px;
     color: #5A6978;
   }
 
@@ -27,12 +31,22 @@ page-current {
     font-size: 1.2em;
     margin-top: 15px;
     color: #5A6978;
+    text-transform: uppercase;
+    font-weight: bold;
+    }
+
+
+  .datedashboard {
+    text-align: center;
+    font-size: 1.2em;
+    color: #5A6978;
+    font-weight: bold;
+    margin-bottom: 20px;
+
   }
 
   .textavailablecredit {
-
     font-size: 1.8em;
-    font-weight: bold;
     text-align: center;
     margin: 5px;
     letter-spacing: 0.2em;

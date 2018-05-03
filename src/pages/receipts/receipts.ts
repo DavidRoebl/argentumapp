@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-import {SettingsPage} from '../settings/settings';
+import { SettingsPage } from '../settings/settings';
 import { ReceiptDetailPage} from '../receipt-detail/receipt-detail';
 
 import { Dataprovider, HistoryType, Receipt } from '../../dataprovider';
@@ -20,59 +19,83 @@ import { Dataprovider, HistoryType, Receipt } from '../../dataprovider';
 })
 export class ReceiptsPage {
 
-  selection: string = "all";
+  private _selection: string = "all";
   receipts: any;
+  private _allReceipts: any;
+  private _debitReceipts: any;
+  private _creditReceipts: any;
+
+  set selection(value: string){
+    this._selection = value;
+    this.showSelected();
+  }
+
+  get selection(){
+    return this._selection;
+  }
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    var listRecieptsLocal = [];
-    Dataprovider.receipts.forEach(function (value) {
+    this._allReceipts = [];
+    this._debitReceipts = [];
+    this._creditReceipts = [];
+    Dataprovider.receipts.forEach((value)=>{
       var iconString = "";
+      var cardColor = "";
       if(value.histType == HistoryType.Withdraw){
         iconString = "arrow-down";
+        cardColor = "#FF0000"; //TODO: style
       } else if (value.histType == HistoryType.Order){
         iconString = "beer";
+        cardColor = "#E0E0E0"; //TODO: style
       } else {
         //value.histType == HistoryType.TopUp
         iconString = "arrow-up";
+        cardColor = "#00FF00"; //TODO: style
       }
 
-      let newListReceipt = new ListItemReceipt(value.id, value.date, value.number, iconString);
-      listRecieptsLocal.push(newListReceipt);
+      let newListReceipt = new ListItemReceipt(value.id, value.date, value.value, iconString, cardColor);
+      this._allReceipts.push(newListReceipt);
+      
+      if(value.histType == HistoryType.TopUp){
+        this._creditReceipts.push(newListReceipt);
+      } else {
+        this._debitReceipts.push(newListReceipt);
+      }
     });
-    this.receipts = listRecieptsLocal;
+    this.receipts = this._allReceipts;
     }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ReceiptsPage');
-  }
-
 
   openSettings(){
     this.navCtrl.push(SettingsPage);
   }
 
-  doNavigation(){
-  	this.navCtrl.push(ReceiptDetailPage);
-  }
-
   onReceiptClick(receiptId: number){
     var selectedReceipt: Receipt;
-    Dataprovider.receipts.forEach(function(value){
+    Dataprovider.receipts.forEach((value)=>{
       if(value.id == receiptId){
         selectedReceipt = value;
       }
-    })
+    });
 
     Dataprovider.selectedReceipt = selectedReceipt;
     this.navCtrl.push(ReceiptDetailPage);
-    console.log("receipt with id " + receiptId + " was selected");
   }
 
+  showSelected(){
+    if(this._selection == "all"){
+      this.receipts = this._allReceipts;
+    } else if(this._selection == "credit"){
+      this.receipts = this._creditReceipts;
+    } else {
+      //this._selection == "debit"
+      this.receipts = this._debitReceipts;
+    }
+  }
 }
 
 export class ListItemReceipt {
   constructor(public id: number, 
     public date: string, public value: number, 
-    public iconName: string){
+    public iconName: string, public cardColor: string){
   }
 }

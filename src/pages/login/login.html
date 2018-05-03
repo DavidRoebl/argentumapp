@@ -15,7 +15,7 @@
 
 <ion-content padding>
 
-  <img src="./assets/imgs/scan_Argentum2.png"/>
+  <img src="./assets/imgs/scan_Argentum2.png" (click)="doNavigation()"/>
 
   <div class="textor">
     or
@@ -25,19 +25,9 @@
     Enter your received PIN
   </div>
 
-
-
-
     <ion-item margin-top>
       <ion-label floating >PIN</ion-label>
       <ion-input type="password"></ion-input>
     </ion-item>
-
-
-
-
-
-
-	<button ion-button round margin-left (click)="doNavigation()">goto: current</button>
 
 </ion-content>

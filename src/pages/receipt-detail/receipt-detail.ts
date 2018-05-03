@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { Dataprovider, Receipt } from '../../dataprovider';
 import {SettingsPage} from '../settings/settings';
 
 /**
@@ -18,16 +17,26 @@ import {SettingsPage} from '../settings/settings';
 })
 export class ReceiptDetailPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public receipt: Receipt;
+  public beverages: any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
+    this.receipt = Dataprovider.selectedReceipt;
+    this.beverages = this.receipt.beverages;
+    console.log(this.receipt.id);
+    console.log(this.receipt);
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ReceiptDetailPage');
-  }
-
-  
   openSettings(){
     this.navCtrl.push(SettingsPage);
   }
 
+  printReceipt(){
+    let toast = this.toastCtrl.create({
+      message: 'TODO: open exernal browser for url: ' + this.receipt.receiptUrl,
+      duration: 5000, //millis i guess?
+      position: 'bottom'
+    });
+    toast.present();
+  }
 }

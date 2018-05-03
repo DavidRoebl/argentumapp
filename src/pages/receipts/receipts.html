@@ -4,6 +4,8 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
+ <!--<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>-->
+
 <ion-header no-border>
 
   <ion-navbar transparent>
@@ -35,10 +37,12 @@
 
   <ion-list>
     <ion-item *ngFor="let receipt of receipts" no-lines round (click)="onReceiptClick(receipt.id)" [ngStyle]="{'background-color': 'transparent'}">
-      <ion-card>
+      <ion-card [ngStyle]="{'background-color': receipt.cardColor}">
         <ion-card-header>
-          <ion-icon style="float: left;" name={{receipt.iconName}}></ion-icon>
-          <span style="float:right">{{receipt.value}} €</span>
+            <ion-card-title>
+              <ion-icon style="float: left;" name={{receipt.iconName}}></ion-icon>
+              <span style="float:right">{{(receipt.value / 100)|currency:'EUR'}}</span>
+          </ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <p>{{receipt.date}}</p>

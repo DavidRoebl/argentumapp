@@ -18,5 +18,47 @@
 
 
 <ion-content padding>
+  <ion-card round>
+    <ion-card-header>
+      <ion-card-title>
+        {{ "Receipt Nr. " + receipt.id}}
+        <!-- TODO: ICON(topup/withdraw/order) -->
+      </ion-card-title>
+      <!-- TODO: use dynamic event once available -->
+        Sommerfest Hagenberg
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{receipt.date}}</p>
 
+      <!-- list of all beverages -->
+      <!-- TODO: make it so that only list scrolls, not whole content! -->
+      <ion-list>
+        <ion-item *ngFor="let beverage of beverages" no-lines [ngStyle]="{'background-color': 'transparent'}">
+
+          <!-- apply styling for single list entry here -->
+          <div>
+            <p>
+              {{beverage.name}}
+              <span style="float:right">{{(beverage.price / 100)|currency:'EUR'}}</span>
+            </p>
+            
+          </div>
+        </ion-item>
+      </ion-list>
+
+      <p>
+        Gesamtsumme
+        <!-- TODO: style -->
+        <span style="float:righ">{{(receipt.value / 100)|currency:'EUR'}}</span>
+      </p>
+   
+      <!-- print button -->
+      <p>
+        <button ion-button (click)="printReceipt()">
+          Print
+        </button>
+      </p>
+
+    </ion-card-content>
+  </ion-card>
 </ion-content>

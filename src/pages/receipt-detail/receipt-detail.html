@@ -21,7 +21,7 @@
   <ion-card round>
     <ion-card-header>
       <ion-card-title>
-        {{ "Receipt Nr. " + receipt.id}}
+        {{ "Order Nr. " + receipt.id}}
         <!-- TODO: ICON(topup/withdraw/order) -->
       </ion-card-title>
       <!-- TODO: use dynamic event once available -->
@@ -41,7 +41,7 @@
               {{beverage.name}}
               <span style="float:right">{{(beverage.price / 100)|currency:'EUR'}}</span>
             </p>
-            
+
           </div>
         </ion-item>
       </ion-list>
@@ -49,12 +49,12 @@
       <p>
         Gesamtsumme
         <!-- TODO: style -->
-        <span style="float:righ">{{(receipt.value / 100)|currency:'EUR'}}</span>
+        <span style="float:right">{{(receipt.value / 100)|currency:'EUR'}}</span>
       </p>
-   
+
       <!-- print button -->
       <p>
-        <button ion-button (click)="printReceipt()">
+        <button ion-button round (click)="printReceipt()">
           Print
         </button>
       </p>

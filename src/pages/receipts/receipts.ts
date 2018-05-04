@@ -42,20 +42,20 @@ export class ReceiptsPage {
       var iconString = "";
       var cardColor = "";
       if(value.histType == HistoryType.Withdraw){
-        iconString = "arrow-down";
+        iconString = "chevron-down";
         cardColor = "#FF0000"; //TODO: style
       } else if (value.histType == HistoryType.Order){
         iconString = "beer";
         cardColor = "#E0E0E0"; //TODO: style
       } else {
         //value.histType == HistoryType.TopUp
-        iconString = "arrow-up";
+        iconString = "chevron-up";
         cardColor = "#00FF00"; //TODO: style
       }
 
       let newListReceipt = new ListItemReceipt(value.id, value.date, value.value, iconString, cardColor);
       this._allReceipts.push(newListReceipt);
-      
+
       if(value.histType == HistoryType.TopUp){
         this._creditReceipts.push(newListReceipt);
       } else {
@@ -94,8 +94,8 @@ export class ReceiptsPage {
 }
 
 export class ListItemReceipt {
-  constructor(public id: number, 
-    public date: string, public value: number, 
+  constructor(public id: number,
+    public date: string, public value: number,
     public iconName: string, public cardColor: string){
   }
 }

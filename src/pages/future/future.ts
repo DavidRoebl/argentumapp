@@ -3,10 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 
 import {SettingsPage} from '../settings/settings';
-import {HistoryType} from "../../dataprovider";
-import {TabsPage} from "../tabs/tabs";
-import {PastPage} from "../past/past";
-import {CurrentPage} from "../current/current";
 
 /**
  * Generated class for the FuturePage page.

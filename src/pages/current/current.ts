@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+import * as HighCharts from 'highcharts';
+
 import {ReceiptsPage} from '../receipts/receipts';
 import {SettingsPage} from '../settings/settings';
 
@@ -26,8 +28,33 @@ export class CurrentPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CurrentPage');
+
+    var myChart = HighCharts.chart('container', {
+      chart: {
+        type: 'bar'
+      },
+      title: {
+        text: 'Fruit Consumption'
+      },
+      xAxis: {
+        categories: ['Apples', 'Bananas', 'Oranges']
+      },
+      yAxis: {
+        title: {
+          text: 'Fruit eaten'
+        }
+      },
+      series: [{
+        name: 'Jane',
+        data: [1, 0, 4]
+      }, {
+        name: 'John',
+        data: [5, 7, 3]
+      }]
+    });
+
   }
-  
+
     doNavigation(){
   //	this.navCtrl.pop();
   this.navParams.get('rootNavCtrl')

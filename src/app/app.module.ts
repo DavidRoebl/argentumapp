@@ -4,7 +4,8 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
 import { SuperTabsModule } from 'ionic2-super-tabs';
-import { QRScanner } from '@ionic-native/qr-scanner'
+import { QRScanner } from '@ionic-native/qr-scanner';
+//import { HighCharts} from 'highcharts';
 
 import { CurrentPage } from '../pages/current/current';
 import { FuturePage } from '../pages/future/future';

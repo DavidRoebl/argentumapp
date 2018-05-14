@@ -37,6 +37,19 @@ page-login {
     color: #616161;
     }
 
+    .item-md, .item-ios {
+      background-color: transparent;
+      padding-left: 45px;
+      padding-right: 35px;
+    }
+
+    .item-inner {
+      border-bottom: 0.55px solid #616161 !important;
+    }
+
+    .label {
+      color: #616161 !important;
+    }
 
 
 }

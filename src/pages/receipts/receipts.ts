@@ -42,15 +42,15 @@ export class ReceiptsPage {
       var iconString = "";
       var cardColor = "";
       if(value.histType == HistoryType.Withdraw){
-        iconString = "chevron-down";
-        cardColor = "#FF0000"; //TODO: style
+        iconString = "arrow-down";
+        cardColor = "#e30000"; //TODO: style
       } else if (value.histType == HistoryType.Order){
-        iconString = "beer";
-        cardColor = "#E0E0E0"; //TODO: style
+        iconString = "wine";
+        cardColor = "#000000"; //TODO: style
       } else {
         //value.histType == HistoryType.TopUp
-        iconString = "chevron-up";
-        cardColor = "#00FF00"; //TODO: style
+        iconString = "arrow-up";
+        cardColor = "#0ccf1f"; //TODO: style
       }
 
       let newListReceipt = new ListItemReceipt(value.id, value.date, value.value, iconString, cardColor);

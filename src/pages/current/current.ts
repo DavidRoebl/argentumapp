@@ -29,27 +29,24 @@ export class CurrentPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad CurrentPage');
 
-    var myChart = HighCharts.chart('container', {
+   var myChart = HighCharts.chart('container', {
       chart: {
-        type: 'bar'
+        type: 'line'
       },
       title: {
-        text: 'Fruit Consumption'
+        text: 'Receipts amount'
       },
       xAxis: {
-        categories: ['Apples', 'Bananas', 'Oranges']
+        type: 'datetime'
       },
       yAxis: {
         title: {
-          text: 'Fruit eaten'
+          text: 'amount'
         }
       },
       series: [{
-        name: 'Jane',
-        data: [1, 0, 4]
-      }, {
-        name: 'John',
-        data: [5, 7, 3]
+        name: 'Amount',
+        data: [1.25, 0.5, 4, 2.5, 3.2, 2]
       }]
     });
 

@@ -1,3 +1,4 @@
+
 export class Card {
 	constructor(public id: number, public cardId: string, public createdAt: string, public credit: number){
 

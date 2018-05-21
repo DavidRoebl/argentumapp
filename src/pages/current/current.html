@@ -26,11 +26,11 @@
 
     <div id="oval">
       <div class="credit">
-        15, 20€
+        {{(myCard.Credit / 100)|currency:'EUR'}}
       </div>
       <div class="textavailablecredit">available credit</div>
-      <div class="locationdashboard">Sommerfest Hagenberg</div>
-      <div class="datedashboard">30.05.2018</div>
+      <div class="locationdashboard">{{currentFestival.name}}</div>
+      <div class="datedashboard">{{currentFestival.date}}</div>
     </div>
   </div>
 

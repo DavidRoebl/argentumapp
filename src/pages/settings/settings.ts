@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-//import {LoginPage} from '../login/login';
+import { CardIdProvider } from '../../providers/card-id/card-id';
 
 /**
  * Generated class for the SettingsPage page.
@@ -12,19 +12,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-settings',
-  templateUrl: 'settings.html',
+	selector: 'page-settings',
+	templateUrl: 'settings.html',
 })
 export class SettingsPage {
+	
+	constructor(public navCtrl: NavController,
+			public navParams: NavParams,
+			private cardIdProvider: CardIdProvider) {}
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+	ionViewDidLoad() {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
-  }
-
-  logout(){
-  	this.navCtrl.popToRoot();
-  }
+	logout(){
+		this.navCtrl.popToRoot();
+	}
 }

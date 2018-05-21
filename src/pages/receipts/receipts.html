@@ -36,12 +36,12 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let receipt of receipts" no-lines round (click)="onReceiptClick(receipt.id)" [ngStyle]="{'background-color': 'transparent'}">
+    <ion-item *ngFor="let receipt of receipts" no-lines round (click)="onReceiptClick(receipt)" [ngStyle]="{'background-color': 'transparent'}">
       <ion-card>
         <ion-card-header>
             <ion-card-title>
-              <ion-icon style="float: left;" name={{receipt.iconName}}></ion-icon>
-              <span style="float:right" [ngStyle]="{'color': receipt.cardColor}">{{(receipt.value / 100)|currency:'EUR'}}</span>
+              <ion-icon style="float: left;" name={{receipt.iconString}}></ion-icon>
+              <span style="float:right" [ngStyle]="{'color': receipt.valueColor}">{{(receipt.value / 100)|currency:'EUR'}}</span>
           </ion-card-title>
         </ion-card-header>
         <ion-card-content>

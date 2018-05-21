@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
-import { Dataprovider, Receipt } from '../../dataprovider';
 import {SettingsPage} from '../settings/settings';
+
+import {ReceiptProvider, Receipt} from '../../providers/receipt/receipt';
+import {BeverageProvider, Beverage} from '../../providers/beverage/beverage';
 
 /**
  * Generated class for the ReceiptDetailPage page.
@@ -12,31 +14,57 @@ import {SettingsPage} from '../settings/settings';
 
 @IonicPage()
 @Component({
-  selector: 'page-receipt-detail',
-  templateUrl: 'receipt-detail.html',
+	selector: 'page-receipt-detail',
+	templateUrl: 'receipt-detail.html',
 })
 export class ReceiptDetailPage {
 
-  public receipt: Receipt;
-  public beverages: any;
+	public receipt: Receipt;
+	public beverages: Beverage[] = [];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private toastCtrl: ToastController) {
-    this.receipt = Dataprovider.selectedReceipt;
-    this.beverages = this.receipt.beverages;
-    console.log(this.receipt.id);
-    console.log(this.receipt);
-  }
+	constructor(public navCtrl: NavController, 
+			public navParams: NavParams, 
+			private receiptProvider: ReceiptProvider,
+			private beverageProvider: BeverageProvider,
+			private zone: NgZone,
+			private toastCtrl: ToastController) {
+		this.receipt = receiptProvider.selectedReceipt;
+		if(!this.receipt){
+			console.error("could not get receipt. aborting!");
+			return;
+		}
+		let beverages = this.receipt.beverages;
+		beverages.forEach((beverageId) => {
+			beverageProvider.getBeverage(beverageId)
+				.then((beverage) => {
+					if(beverage){
+						this.zone.run(()=>{
+							this.beverages.push(beverage);
+						});
+					} else {
+						console.error("ReceiptDetailPage: getting beverage returned null... WTF (id was: " + beverageId + ")");
+					}
+				})
+				.catch((error) => {
+					console.error("ReceiptDetailPage: could not get beverage for id: " + beverageId + "; error was: " + error);
+				});
+		});
+	}
 
-  openSettings(){
-    this.navCtrl.push(SettingsPage);
-  }
+	openSettings(){
+		this.navCtrl.push(SettingsPage);
+	}
 
-  printReceipt(){
-    let toast = this.toastCtrl.create({
-      message: 'TODO: open exernal browser for url: ' + this.receipt.receiptUrl,
-      duration: 5000, //millis i guess?
-      position: 'bottom'
-    });
-    toast.present();
-  }
+	printReceipt(){
+		if(this.receipt.receiptUrl){
+			window.open(this.receipt.receiptUrl, "_system");
+		} else {
+			let toast = this.toastCtrl.create({
+		      message: 'Sorry! No PDF is available for this receipt.',
+		      duration: 3000, //millis i guess?
+		      position: 'bottom'
+		    });
+		    toast.present();
+		}
+	}
 }

@@ -31,7 +31,7 @@
 					{{festival.date}}</div>
 				<img src="{{festival.backgroundImageUrl}}"/>
 				<div class="card-title">{{festival.name}}</div>
-				<div class="card-subtitle">Expenses: 53,25€</div>
+				<div class="card-subtitle">Expenses: {{festival.moneySpent/100|currency:'EUR'}}</div>
 			</ion-card>
 		</ion-item>
 	</ion-list>

@@ -45,18 +45,18 @@ export class Receipt {
 	
 
 	static receipts: Receipt[] = [
-		new Receipt(20001, "2018-05-02T16:37:00.000Z", 5000, HistoryType.TopUp,    [],                                                       Receipt.url, Receipt.cardId),
-		new Receipt(20002, "2018-05-02T16:38:00.000Z", 1350, HistoryType.Order,    [10000, 10008, 10000, 10008, 10000, 10008],               Receipt.url, Receipt.cardId),
-		new Receipt(20003, "2018-05-02T16:39:00.000Z", 1300, HistoryType.Order,    [10002, 10008, 10002, 10008, 10001, 10008],               Receipt.url, Receipt.cardId),
-		new Receipt(20004, "2018-05-02T16:40:00.000Z", -200, HistoryType.Order,    [10004, 10008, 10009, 10009, 10009, 10009, 10009, 10009], Receipt.url, Receipt.cardId),
-		new Receipt(20005, "2018-05-02T16:42:00.000Z",  350, HistoryType.Order,    [10000, 10008, 10009],                                    Receipt.url, Receipt.cardId),
-		new Receipt(20006, "2018-05-02T16:45:00.000Z",  350, HistoryType.Order,    [10000, 10008, 10009],                                    Receipt.url, Receipt.cardId),
-		new Receipt(20007, "2018-05-02T16:46:00.000Z", -100, HistoryType.Order,    [10009],                                                  Receipt.url, Receipt.cardId),
-		new Receipt(20008, "2018-05-02T16:57:00.000Z", 1950, HistoryType.Withdraw, [],                                                       Receipt.url, Receipt.cardId)
+		new Receipt(20001, new Date("2018-05-30T16:10:00.000Z"), 5000, HistoryType.TopUp,    [],                                                       Receipt.url, Receipt.cardId),
+		new Receipt(20002, new Date("2018-05-30T17:20:00.000Z"), 1350, HistoryType.Order,    [10000, 10008, 10000, 10008, 10000, 10008],               Receipt.url, Receipt.cardId),
+		new Receipt(20003, new Date("2018-05-30T18:30:00.000Z"), 1300, HistoryType.Order,    [10002, 10008, 10002, 10008, 10001, 10008],               Receipt.url, Receipt.cardId),
+		new Receipt(20004, new Date("2018-05-30T19:40:00.000Z"), -200, HistoryType.Order,    [10004, 10008, 10009, 10009, 10009, 10009, 10009, 10009], Receipt.url, Receipt.cardId),
+		new Receipt(20005, new Date("2018-05-30T20:00:00.000Z"),  350, HistoryType.Order,    [10000, 10008, 10009],                                    Receipt.url, Receipt.cardId),
+		new Receipt(20006, new Date("2018-05-30T21:20:00.000Z"),  350, HistoryType.Order,    [10000, 10008, 10009],                                    Receipt.url, Receipt.cardId),
+		new Receipt(20007, new Date("2018-05-30T22:30:00.000Z"), -100, HistoryType.Order,    [10009],                                                  Receipt.url, Receipt.cardId),
+		new Receipt(20008, new Date("2018-05-30T23:10:00.000Z"), 1950, HistoryType.Withdraw, [],                                                       Receipt.url, Receipt.cardId)
 	];
 
 	private constructor(public id: number, 
-		public date: string, public value: number, 
+		public date: Date, public value: number, 
 		public histType: HistoryType, public beverages: number[], 
 		public receiptUrl: string, public cardId: string){
 

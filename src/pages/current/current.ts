@@ -9,6 +9,7 @@ import {SettingsPage} from '../settings/settings';
 import {FestivalProvider, Festival} from '../../providers/festival/festival';
 import {CardIdProvider} from '../../providers/card-id/card-id';
 import {CardProvider, Card} from '../../providers/card/card';
+import {ReceiptProvider, Receipt} from '../../providers/receipt/receipt';
 
 /**
  * Generated class for the CurrentPage page.
@@ -28,11 +29,16 @@ export class CurrentPage {
 	currentFestival: Festival;
 	myCard: Card;
 
+	private receipts: Receipt[];
+	private viewDidLoad: boolean = false;
+	private shouldShowChart: boolean = false;
+
 	constructor(public navCtrl: NavController, 
 			public navParams: NavParams, 
 			private cardIdProvider: CardIdProvider, 
 			private festivalProvider: FestivalProvider,
 			private cardProvider: CardProvider,
+			private receiptProvider: ReceiptProvider,
 			private zone: NgZone) {
 		this.rootNavCtrl = navParams.get('rootNavCtrl');
 
@@ -43,9 +49,10 @@ export class CurrentPage {
 				this.zone.run(() =>{
 					this.currentFestival = festival;	
 				});
+				this.loadReceipts(festival);
 			})
 			.catch((error) =>{
-				console.log("CurrentPage: tried to get current festival, caught: " + error);
+				console.error("CurrentPage: tried to get current festival, caught: " + error);
 			});
 
 		this.myCard = Card.EMPTY_CARD;
@@ -57,32 +64,89 @@ export class CurrentPage {
 				});
 			})
 			.catch((error) =>{
-				console.log("CurrentPage: tried to get card, caught: " + error);
+				console.error("CurrentPage: tried to get card, caught: " + error);
 			});
+
+
 	}
 	
 	ionViewDidLoad() {
+		console.log("CurrentPage: ionViewDidLoad() start");
+		if(this.shouldShowChart){
+			this.shouldShowChart = false;
+			this.showChart(this.receipts);
+		}
+		this.viewDidLoad = true;
+
+		console.log("CurrentPage: ionViewDidLoad() end");
+	}
+
+	private showChartViewSafe(receipts: Receipt[]){
+		console.log("CurrentPage: showChartViewSafe() start");
+		if(this.viewDidLoad){
+			this.showChart(receipts);
+		} else {
+			this.receipts = receipts;
+			this.shouldShowChart = true;
+		}
+		console.log("CurrentPage: showChartViewSafe() end");
+	}
+
+
+	private loadReceipts(festival: Festival){
+		this.receiptProvider.getReceipts(festival.id, this.cardIdProvider.cardId)
+			.then((receipts) =>{
+		console.log("CurrentPage: receipts loaded");
+				this.showChartViewSafe(receipts);
+
+			})
+			.catch((error) => {
+				console.error("CurrentPage tried to get receipts for current festival, caught: " + error);
+			});	
+	}
+
+
+	/*
+	 * DO NOT CALL UNLESS YOU KNOW WHAT YOU ARE DOING
+	 */
+	private showChart(receipts: Receipt[]){
+		console.log("CurrentPage: showChart() start");
+		var data: any = [];
+		receipts.forEach((receipt) => {
+			let arr = [receipt.date.getTime(), receipt.value/100];
+			console.log(arr);
+			data.push(arr);
+		});
+
+		console.log(data);
+
 		var myChart = HighCharts.chart('container', {
 			chart: {
 				type: 'line'
 			},
 			title: {
-				text: 'Receipts amount'
+				text: 'Receipt amount over time'
 			},
 			xAxis: {
-				type: 'datetime'
+				type: 'datetime',
+				title: {
+					text: 'Date'
+				}
 			},
 			yAxis: {
 		 		title: {
-					text: 'amount'
+					text: 'EUR'
 				}
 			},
-			series: [{
-				name: 'Amount',
-				data: [1.25, 0.5, 4, 2.5, 3.2, 2]
-			}]
+			series: [
+				{
+					name: 'EUR',
+					data: data
+				}
+			]
 		});
 
+		console.log("CurrentPage: showChart() end");
 	}
 
 	doNavigation(){

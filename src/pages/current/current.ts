@@ -33,9 +33,9 @@ export class CurrentPage {
 	private viewDidLoad: boolean = false;
 	private shouldShowChart: boolean = false;
 
-	constructor(public navCtrl: NavController, 
-			public navParams: NavParams, 
-			private cardIdProvider: CardIdProvider, 
+	constructor(public navCtrl: NavController,
+			public navParams: NavParams,
+			private cardIdProvider: CardIdProvider,
 			private festivalProvider: FestivalProvider,
 			private cardProvider: CardProvider,
 			private receiptProvider: ReceiptProvider,
@@ -47,7 +47,7 @@ export class CurrentPage {
 			.then((festival) => {
 				console.log("CurrentPage: successfully loaded FESTIVAL");
 				this.zone.run(() =>{
-					this.currentFestival = festival;	
+					this.currentFestival = festival;
 				});
 				this.loadReceipts(festival);
 			})
@@ -59,7 +59,7 @@ export class CurrentPage {
 		cardProvider.cardStatus(cardIdProvider.cardId)
 			.then((card) => {
 				console.log("CurrentPage: successfully loaded CARD");
-				this.zone.run(() =>{				
+				this.zone.run(() =>{
 					this.myCard = card;
 				});
 			})
@@ -69,7 +69,7 @@ export class CurrentPage {
 
 
 	}
-	
+
 	ionViewDidLoad() {
 		console.log("CurrentPage: ionViewDidLoad() start");
 		if(this.shouldShowChart){
@@ -102,7 +102,7 @@ export class CurrentPage {
 			})
 			.catch((error) => {
 				console.error("CurrentPage tried to get receipts for current festival, caught: " + error);
-			});	
+			});
 	}
 
 

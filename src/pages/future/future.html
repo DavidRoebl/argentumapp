@@ -26,9 +26,10 @@
 					{{festival.location}}
 				</div>
 				<div class="date"><ion-icon name="calendar"></ion-icon>
-					{{festival.date}}</div>
+					{{festival.date|date:'dd.MM.yy'}}</div>
 				<img src="{{festival.backgroundImageUrl}}"/>
 				<div class="card-title">{{festival.name}}</div>
+        <div class="card-subtitle">Beginn: {{festival.date|date:'HH:mm'}} Uhr</div>
 			</ion-card>
 		</ion-item>
 	</ion-list>

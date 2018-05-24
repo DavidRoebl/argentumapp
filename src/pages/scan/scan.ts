@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
 import { TabsPage } from '../tabs/tabs';
@@ -23,7 +23,8 @@ export class ScanPage {
 	constructor(public navCtrl: NavController,
 			public navParams: NavParams, 
 			private qrScanner: QRScanner,
-			private cardIdProvider: CardIdProvider) {
+			private cardIdProvider: CardIdProvider,
+			public toastCtrl:ToastController) {
 
 		// mocking scanning because the camera can't really 
 		// detect qrcodes displayed on another screen and i don't have a printer at hand
@@ -36,21 +37,23 @@ export class ScanPage {
 	}
 
 	prepareScanner(){
-		this.qrScanner.prepare().then((status: QRScannerStatus) => {
-			if(status.authorized){
-				//permission was granted
-				this.qrScanner.show();
-				this.scan();
-			} else if(status.denied){
-				//permission denied permanently
-				//user needs to allow permission in settings
-				this.qrScanner.openSettings();
-			} else {
-				//permission temporarily not granted
-				//TODO: make dialog that tells user to allow permission & ask again
-				this.prepareScanner();
-			}
-		}).catch((e: any) => console.log('Error is ' + e));
+		this.qrScanner.prepare()
+			.then((status: QRScannerStatus) => {
+				if(status.authorized){
+					//permission was granted
+					this.qrScanner.show();
+					this.scan();
+				} else if(status.denied){
+					//permission denied permanently
+					//user needs to allow permission in settings
+					this.qrScanner.openSettings();
+				} else {
+					//permission temporarily not granted
+					//TODO: make dialog that tells user to allow permission & ask again
+					this.prepareScanner();
+				}
+			})
+			.catch((e: any) => console.log('Error is ' + e));
 	}
 
 	scan(){
@@ -59,9 +62,9 @@ export class ScanPage {
 			let pin = this.cardIdProvider.setCardId(text);
 			console.log(pin);
 
-			//TODO: show pin to user
-
-
+			//show pin to user
+			this.showToastWithCloseButton();
+			
 			//navigate to next view
 			this.navCtrl.push(TabsPage);
 
@@ -75,5 +78,14 @@ export class ScanPage {
 		console.log(pin);
 
 		this.navCtrl.push(TabsPage);
+	}
+
+	showToastWithCloseButton() {
+		const toast = this.toastCtrl.create({
+			message: "Your Pin is set: " + (this.cardIdProvider.pin).toString(),
+			showCloseButton: true,
+			closeButtonText: 'Ok'
+		});
+		toast.present();
 	}
 }

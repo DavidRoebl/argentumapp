@@ -19,9 +19,9 @@
 
 <ion-content class="events" no-margin no-padding>
 
-	<ion-list>
+	<ion-list class="events">
 		<ion-item *ngFor="let festival of festivals" (click)="onFestivalClick(festival)">
-			<ion-card>
+			<ion-card >
 				<div class="location"><ion-icon name="pin"></ion-icon>
 					{{festival.location}}
 				</div>

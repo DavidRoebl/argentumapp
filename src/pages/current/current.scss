@@ -2,7 +2,20 @@ page-current {
 
 .buttontransaction{
   text-align: center;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 16px;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 99;
 }
+
+  #container{
+    width: auto !important;
+    border-radius: 10px;
+  }
 
 
    #oval{

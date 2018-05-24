@@ -125,7 +125,8 @@ export class CurrentPage {
 
     var myChart = HighCharts.chart('container', {
       chart: {
-        type: 'line'
+        type: 'line',
+        height: (10 / 16 * 100) + '%' // 16:9 ratio
       },
       title: {
         text: 'Receipt amount over time'

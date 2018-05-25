@@ -1,0 +1,64 @@
+<!--
+  Generated template for the ReceiptDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+  <ion-navbar transparent>
+    <ion-buttons [color]="plain-white" end>
+      <button ion-button (click)="openSettings()">
+        <ion-icon name="settings" style="zoom:1.8;" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card round>
+    <ion-card-header>
+      <ion-card-title>
+        {{ "Order Nr. " + receipt.id}}
+        <!-- TODO: ICON(topup/withdraw/order) -->
+      </ion-card-title>
+      <!-- TODO: use dynamic event once available -->
+        Sommerfest Hagenberg
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{receipt.date|date:'dd.MM.yy HH:mm'}}</p>
+
+      <!-- list of all beverages -->
+      <!-- TODO: make it so that only list scrolls, not whole content! -->
+      <ion-list>
+        <ion-item *ngFor="let beverage of beverages" no-lines [ngStyle]="{'background-color': 'transparent'}">
+
+          <!-- apply styling for single list entry here -->
+          <div>
+            <p>
+              {{beverage.name}}
+              <span style="float:right">{{(beverage.price / 100)|currency:'EUR'}}</span>
+            </p>
+
+          </div>
+        </ion-item>
+      </ion-list>
+
+      <p>
+        Gesamtsumme
+        <!-- TODO: style -->
+        <span style="float:right">{{(receipt.value / 100)|currency:'EUR'}}</span>
+      </p>
+
+      <!-- print button -->
+      <p>
+        <button ion-button round (click)="printReceipt()">
+          Print
+        </button>
+      </p>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

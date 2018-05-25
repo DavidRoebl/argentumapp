@@ -1,0 +1,57 @@
+page-login {
+
+  img {
+    height: 50%;
+    width: auto;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    }
+
+  .textor {
+    width: 50%;
+    color: #616161;
+    font-size: 1.6em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 3em;
+    position: relative;
+    float: clear;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    }
+
+  .textpin {
+    width: 50%;
+    font-size: 1.2em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-top: 1em;
+    position: relative;
+    text-align: center;
+    float: clear;
+    color: #616161;
+    }
+
+    .item-md, .item-ios {
+      background-color: transparent;
+      padding-left: 4em;
+      padding-right: 4em;
+    }
+
+    .item-inner {
+      border-bottom: 0.55px solid #616161 !important;
+    }
+
+    .label {
+      color: #616161 !important;
+    }
+
+    img {
+      margin-top: 4em !important;
+    }
+}

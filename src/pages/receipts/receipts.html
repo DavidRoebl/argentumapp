@@ -1,0 +1,53 @@
+<!--
+  Generated template for the ReceiptsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+ <!--<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>-->
+
+<ion-header no-border>
+
+  <ion-navbar transparent>
+    <ion-buttons [color]="plain-white" end>
+      <button ion-button (click)="openSettings()">
+        <ion-icon name="settings" style="zoom:1.8;" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+  <ion-toolbar no-border-top transparent>
+    <ion-segment [(ngModel)]="selection">
+      <ion-segment-button value="all">
+        <div class="textlabels">all</div>
+      </ion-segment-button>
+      <ion-segment-button value="credit">
+        <div class="textlabels">credit</div>
+      </ion-segment-button>
+      <ion-segment-button value="debit">
+        <div class="textlabels">debit</div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item *ngFor="let receipt of receipts" no-lines round (click)="onReceiptClick(receipt)" [ngStyle]="{'background-color': 'transparent'}">
+      <ion-card>
+        <ion-card-header>
+            <ion-card-title>
+              <ion-icon style="float: left;" name={{receipt.iconString}}></ion-icon>
+              <span style="float:right" [ngStyle]="{'color': receipt.valueColor}">{{(receipt.value / 100)|currency:'EUR'}}</span>
+          </ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{receipt.date|date:'dd.MM.yy HH:mm'}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

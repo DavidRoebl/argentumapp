@@ -1,0 +1,38 @@
+<!--
+	Generated template for the PastPage page.
+
+	See http://ionicframework.com/docs/components/#navigation for more info on
+	Ionic pages and navigation.
+-->
+<ion-header no-border>
+
+	<ion-navbar transparent>
+		<ion-buttons [color]="plain-white" end>
+			<button ion-button (click)="openSettings()">
+				<ion-icon name="settings" style="zoom:1.8;" ></ion-icon>
+			</button>
+		</ion-buttons>
+	</ion-navbar>
+
+</ion-header>
+
+
+
+
+<ion-content class="events" no-margin no-padding>
+
+	<ion-list>
+		<ion-item *ngFor="let festival of festivals">
+			<ion-card (click)="doNavigation()">
+				<div class="location"><ion-icon name="pin"></ion-icon>
+					{{festival.location}}
+				</div>
+				<div class="date"><ion-icon name="calendar"></ion-icon>
+					{{festival.date|date:'dd.MM.yy'}}</div>
+				<img src="{{festival.backgroundImageUrl}}"/>
+				<div class="card-title">{{festival.name}}</div>
+				<div class="card-subtitle">Expenses: {{festival.moneySpent/100|currency:'EUR'}}</div>
+			</ion-card>
+		</ion-item>
+	</ion-list>
+</ion-content>

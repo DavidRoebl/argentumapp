@@ -14,3 +14,94 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+
+
+  ion-content {
+    background-image: url("../assets/imgs/background_yellow.jpg");
+    background-position-x: 50%;
+    background-size: cover;
+    background-color: transparent;
+  }
+
+  ion-app{
+    background-color: transparent !important; 
+  }
+
+
+.bar-buttons-ios{
+  height: 4%;
+  padding-top: 1em;
+  padding-right: 5px;
+  margin: 0px !important;
+}
+
+
+.events {
+  ion-card {
+    position: relative;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 8px;
+    width: 100%;
+    border-radius: 0px;
+    background-color: transparent;
+    height: 36% !important;
+    }
+
+
+  img {
+     height: 12em;
+  }
+
+
+  .location {
+    left: 0%;
+    top: 0%;
+    position: absolute;
+    margin: 16px;
+    font-size: 1.2em;
+    color: #fff;
+    text-shadow: 1px 1px #616161;
+
+  }
+
+  .date {
+    right: 0%;
+    top: 0%;
+    font-size: 1.2em;
+    position:absolute;
+    margin: 16px;
+    color: #fff;
+    text-shadow: 1px 1px #616161;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 40%;
+    font-size: 2.0em;
+    width: 100%;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #616161;
+  }
+
+  .card-subtitle {
+    font-size: 1.2em;
+    position: absolute;
+    top: 59%;
+    width: 100%;
+    color: #fff;
+    text-shadow: 1px 1px #616161;
+  }
+}
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+page-settings {
+
+  ion-card-header{
+    font-weight: bold;
+  }
+
+  ion-card {
+    border-radius: 10px !important;
+  }
+
+  .notificationtext {
+    margin-left: 16px;
+    margin-bottom: 16px;
+    font-weight: lighter;
+    color: red;
+  }
+
+  ion-badge{
+    font-size: 1.3em;
+    padding: 4px;
+  }
+
+  ion-range{
+    padding-top: 20px !important;
+  }
+
+ }

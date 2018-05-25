@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
-import { TabsPage } from '../tabs/tabs';
+import { CurrentPage } from '../current/current';
 
 import { CardIdProvider } from '../../providers/card-id/card-id';
 
@@ -57,35 +57,29 @@ export class ScanPage {
 	}
 
 	scan(){
-		let scanSub = this.qrScanner.scan().subscribe((text: string) => {
-			//store scanned text
-			let pin = this.cardIdProvider.setCardId(text);
-			console.log(pin);
+		let scanSub = this.qrScanner.scan()
+			.subscribe((qrcode: any) => {
 
-			//show pin to user
-			this.showToastWithCloseButton();
-			
-			//navigate to next view
-			this.navCtrl.push(TabsPage);
+				let text: string = qrcode.result;
 
-			this.qrScanner.hide();
-			scanSub.unsubscribe();
-		});
+				console.log("scanned card: " + text);
+
+				//store scanned text
+				let pin = this.cardIdProvider.setCardId(text);
+				console.log(pin);
+				
+				//navigate to next view
+				this.navCtrl.push(CurrentPage);
+
+				this.qrScanner.hide();
+				scanSub.unsubscribe();
+			});
 	}
 
 	mockScan(){
 		let pin = this.cardIdProvider.setCardId("ed163c5c-b271-4b12-976a-e776c937ff6e");
 		console.log(pin);
 
-		this.navCtrl.push(TabsPage);
-	}
-
-	showToastWithCloseButton() {
-		const toast = this.toastCtrl.create({
-			message: "Your Pin is set: " + (this.cardIdProvider.pin).toString(),
-			showCloseButton: true,
-			closeButtonText: 'Ok'
-		});
-		toast.present();
+		this.navCtrl.push(CurrentPage);
 	}
 }

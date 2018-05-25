@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-import { CardIdProvider } from '../../providers/card-id/card-id';
-
 /**
  * Generated class for the SettingsPage page.
  *
@@ -18,8 +16,7 @@ import { CardIdProvider } from '../../providers/card-id/card-id';
 export class SettingsPage {
 	
 	constructor(public navCtrl: NavController,
-			public navParams: NavParams,
-			private cardIdProvider: CardIdProvider) {}
+			public navParams: NavParams) {}
 
 	ionViewDidLoad() {}
 

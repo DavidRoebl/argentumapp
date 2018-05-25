@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { ScanPage } from '../scan/scan';
-import { TabsPage } from '../tabs/tabs';
+import { CurrentPage } from '../current/current';
 
 import { CardIdProvider} from '../../providers/card-id/card-id';
 
@@ -41,7 +41,7 @@ export class LoginPage {
 					this.passcode = NaN;
 
 					//now navigate to tabs page
-					this.navCtrl.push(TabsPage);
+					this.navCtrl.push(CurrentPage);
 
 				} else {
 					console.error("LoginPage: could not load cardId for pin: " + this.passcode + "; cardId was null!!");

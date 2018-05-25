@@ -15,21 +15,6 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-
-  <ion-toolbar no-border-top transparent>
-    <ion-segment [(ngModel)]="selection">
-      <ion-segment-button value="all">
-        <div class="textlabels">all</div>
-      </ion-segment-button>
-      <ion-segment-button value="credit">
-        <div class="textlabels">credit</div>
-      </ion-segment-button>
-      <ion-segment-button value="debit">
-        <div class="textlabels">debit</div>
-      </ion-segment-button>
-    </ion-segment>
-  </ion-toolbar>
-
 </ion-header>
 
 
@@ -40,12 +25,11 @@
       <ion-card>
         <ion-card-header>
             <ion-card-title>
-              <ion-icon style="float: left;" name={{receipt.iconString}}></ion-icon>
-              <span style="float:right" [ngStyle]="{'color': receipt.valueColor}">{{(receipt.value / 100)|currency:'EUR'}}</span>
+              <span style="float:right" >{{(receipt.Value / 100)|currency:'EUR'}}</span>
           </ion-card-title>
         </ion-card-header>
         <ion-card-content>
-          <p>{{receipt.date|date:'dd.MM.yy HH:mm'}}</p>
+          <p>{{receipt.Date|date:'dd.MM.yy HH:mm'}}</p>
         </ion-card-content>
       </ion-card>
     </ion-item>

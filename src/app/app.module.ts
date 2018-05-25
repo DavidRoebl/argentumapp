@@ -11,13 +11,9 @@ import { IonicStorageModule } from '@ionic/storage';
 //import { HighCharts} from 'highcharts';
 
 import { CurrentPage } from '../pages/current/current';
-import { FuturePage } from '../pages/future/future';
 import { LoginPage } from '../pages/login/login';
-import { ReceiptDetailPage } from '../pages/receipt-detail/receipt-detail';
 import { ReceiptsPage } from '../pages/receipts/receipts';
 import { SettingsPage } from '../pages/settings/settings';
-import { PastPage } from '../pages/past/past';
-import { TabsPage } from '../pages/tabs/tabs';
 import { ScanPage } from '../pages/scan/scan';
 
 import { StatusBar } from '@ionic-native/status-bar';
@@ -26,19 +22,14 @@ import { ReceiptProvider } from '../providers/receipt/receipt';
 import { BeverageProvider } from '../providers/beverage/beverage';
 import { CardIdProvider } from '../providers/card-id/card-id';
 import { CardProvider } from '../providers/card/card';
-import { FestivalProvider } from '../providers/festival/festival';
 
 @NgModule({
   declarations: [
     MyApp,
     CurrentPage,
-    FuturePage,
     LoginPage,
-    ReceiptDetailPage,
     ReceiptsPage,
     SettingsPage,
-    TabsPage,
-    PastPage,
     ScanPage
   ],
   imports: [
@@ -53,13 +44,9 @@ import { FestivalProvider } from '../providers/festival/festival';
   entryComponents: [
     MyApp,
     CurrentPage,
-    FuturePage,
     LoginPage,
-    ReceiptDetailPage,
     ReceiptsPage,
     SettingsPage,
-    TabsPage,
-    PastPage,
     ScanPage
   ],
   providers: [
@@ -70,8 +57,7 @@ import { FestivalProvider } from '../providers/festival/festival';
     ReceiptProvider,
     BeverageProvider,
     CardIdProvider,
-    CardProvider,
-    FestivalProvider
+    CardProvider
   ]
 })
 export class AppModule {}

@@ -4,7 +4,7 @@ import { QRScanner, QRScannerStatus } from '@ionic-native/qr-scanner';
 
 import { CurrentPage } from '../current/current';
 
-import { CardIdProvider } from '../../providers/card-id/card-id';
+import { CardProvider } from '../../providers/card/card';
 
 /**
  * Generated class for the ScanPage page.
@@ -23,12 +23,9 @@ export class ScanPage {
 	constructor(public navCtrl: NavController,
 			public navParams: NavParams, 
 			private qrScanner: QRScanner,
-			private cardIdProvider: CardIdProvider,
-			public toastCtrl:ToastController) {
+			private cardProvider: CardProvider,
+			private toastCtrl: ToastController) {
 
-		// mocking scanning because the camera can't really 
-		// detect qrcodes displayed on another screen and i don't have a printer at hand
-		//this.mockScan();
 		this.prepareScanner();
 	}
 
@@ -40,20 +37,26 @@ export class ScanPage {
 		this.qrScanner.prepare()
 			.then((status: QRScannerStatus) => {
 				if(status.authorized){
+					this.showToast("status: authorized, starting scan");
 					//permission was granted
 					this.qrScanner.show();
 					this.scan();
 				} else if(status.denied){
+					this.showToast("status: denied -- opening settings");
 					//permission denied permanently
 					//user needs to allow permission in settings
 					this.qrScanner.openSettings();
 				} else {
+					this.showToast("status: other; retrying");
 					//permission temporarily not granted
 					//TODO: make dialog that tells user to allow permission & ask again
 					this.prepareScanner();
 				}
 			})
-			.catch((e: any) => console.log('Error is ' + e));
+			.catch((e: any) => {
+				console.log('Error is ' + e);
+				this.showToast("error: " + e.name + ": " + e._message);
+			});
 	}
 
 	scan(){
@@ -65,8 +68,7 @@ export class ScanPage {
 				console.log("scanned card: " + text);
 
 				//store scanned text
-				let pin = this.cardIdProvider.setCardId(text);
-				console.log(pin);
+				this.cardProvider.cardId = text;
 				
 				//navigate to next view
 				this.navCtrl.push(CurrentPage);
@@ -76,10 +78,16 @@ export class ScanPage {
 			});
 	}
 
-	mockScan(){
-		let pin = this.cardIdProvider.setCardId("ed163c5c-b271-4b12-976a-e776c937ff6e");
-		console.log(pin);
-
-		this.navCtrl.push(CurrentPage);
+	private showToast(message: string){
+		const toast = this.toastCtrl.create({
+			message: message,
+			showCloseButton: true
+		});
+		toast.present();
 	}
+
+//	mockScan(){
+//		this.cardProvider.cardId = "ed163c5c-b271-4b12-976a-e776c937ff6e";
+//		this.navCtrl.push(CurrentPage);
+//	}
 }

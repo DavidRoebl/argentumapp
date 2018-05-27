@@ -10,35 +10,27 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ReceiptProvider {
 
-	//private map: Map<number, Receipt> = new Map();
-
 	public selectedReceipt: Receipt = null;
 	private static festivalId: number = 5754258133614592;
 
 	constructor(public http: HttpClient) {}
 
 	public getReceipts(cardId: string): Promise<Receipt[]>{
-		return new Promise(resolve => {
+		return new Promise((resolve, reject) => {
 			this.http.get('https://api.paytival.com//history/' + ReceiptProvider.festivalId + "/" + cardId)
 				.subscribe((data) => {
-					
 					let receipts: Receipt[] = data as Receipt[];
 
 					resolve(receipts);
+				}, (error) => {
+					reject();
 				});
 			});
 	}
 }
 
-export enum HistoryType{
-	"Withdraw",
-	"TopUp",
-	"Order" 	
-};
-
 /**
- * mock receipt class
- * this will have to change quite a bit once the server communication is available
+ * bean
  */
 export class Receipt {
 

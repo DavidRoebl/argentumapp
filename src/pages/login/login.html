@@ -9,7 +9,7 @@
 
 <ion-content>
 
-	<img src="./assets/imgs/scan_Argentum2.png" (click)="doNavigation()"/>
+	<img src="./assets/imgs/scan_paytival.png" (click)="doNavigation()"/>
 
 	<div class="textor">
 		or
@@ -21,10 +21,9 @@
 	</div>
 -->
 		<ion-item margin-top>
-			<ion-label floating>enter your received PIN.</ion-label>
+			<ion-label floating>enter your card ID manually.</ion-label>
 			<ion-input 
-					type="number"
-					[(ngModel)] = "passcode"
+					[(ngModel)] = "cardId"
 					(keyup.enter)="handleLogin()"
 					>
 					<!-- max length does not seem to work in chrome; need to validate on ios/android -->

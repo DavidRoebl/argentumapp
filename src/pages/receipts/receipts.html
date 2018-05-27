@@ -7,7 +7,6 @@
  <!--<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.en"></script>-->
 
 <ion-header no-border>
-
   <ion-navbar transparent>
     <ion-buttons [color]="plain-white" end>
       <button ion-button (click)="openSettings()">
@@ -15,16 +14,29 @@
       </button>
     </ion-buttons>
   </ion-navbar>
+
+<ion-toolbar no-border-top transparent>
+    <ion-segment [(ngModel)]="selection">
+      <ion-segment-button value="topup">
+        <div class="textlabels">top up</div>
+      </ion-segment-button>
+      <ion-segment-button value="order">
+        <div class="textlabels">order</div>
+      </ion-segment-button>
+      <ion-segment-button value="withdraw">
+        <div class="textlabels">withdraw</div>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
-
 <ion-content padding>
-
   <ion-list>
     <ion-item *ngFor="let receipt of receipts" no-lines round (click)="onReceiptClick(receipt)" [ngStyle]="{'background-color': 'transparent'}">
-      <ion-card>
+      <ion-card [ngStyle]="{'background-color': receipt.bgColor}">
         <ion-card-header>
             <ion-card-title>
+              <ion-icon style="float: left;" name={{receipt.iconString}}></ion-icon>
               <span style="float:right" >{{(receipt.Value / 100)|currency:'EUR'}}</span>
           </ion-card-title>
         </ion-card-header>

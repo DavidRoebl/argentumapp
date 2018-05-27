@@ -19,8 +19,6 @@ import { ScanPage } from '../pages/scan/scan';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { ReceiptProvider } from '../providers/receipt/receipt';
-import { BeverageProvider } from '../providers/beverage/beverage';
-import { CardIdProvider } from '../providers/card-id/card-id';
 import { CardProvider } from '../providers/card/card';
 
 @NgModule({
@@ -55,8 +53,6 @@ import { CardProvider } from '../providers/card/card';
     QRScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ReceiptProvider,
-    BeverageProvider,
-    CardIdProvider,
     CardProvider
   ]
 })

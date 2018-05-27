@@ -4,7 +4,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ScanPage } from '../scan/scan';
 import { CurrentPage } from '../current/current';
 
-import { CardIdProvider} from '../../providers/card-id/card-id';
+import { CardProvider} from '../../providers/card/card';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,36 +20,15 @@ import { CardIdProvider} from '../../providers/card-id/card-id';
 })
 export class LoginPage {
 
-	passcode: number;
+	cardId: string;
 
 	constructor(public navCtrl: NavController,
 			public navParams: NavParams,
-			private cardIdProvider: CardIdProvider) {}
-
-	ionViewDidLoad() {
-		console.log('ionViewDidLoad LoginPage');
-	}
+			private cardProvider: CardProvider) {}
 
 	handleLogin(){
-		this.cardIdProvider.getCardIdForPin(this.passcode)
-			.then((cardId) =>{
-				if(cardId){
-					//success!!
-					console.log("LoginPage: successfully got card id");
-
-					//remove passcode input
-					this.passcode = NaN;
-
-					//now navigate to tabs page
-					this.navCtrl.push(CurrentPage);
-
-				} else {
-					console.error("LoginPage: could not load cardId for pin: " + this.passcode + "; cardId was null!!");
-				}
-			})
-			.catch((error) => {
-				console.error("LoginPage: could not load cardId for pin: " + this.passcode + "; error: " + error);
-			});
+		this.cardProvider.cardId = (this.cardId);
+		this.navCtrl.push(CurrentPage);
 	}
 
 	doNavigation(){

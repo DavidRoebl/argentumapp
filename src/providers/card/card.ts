@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+
 /*
 	Generated class for the CardProvider provider.
 
@@ -10,18 +11,30 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class CardProvider {
 
+	private _cardId: string = null;
+
 	constructor(public http: HttpClient) {}
+
+	public set cardId(cardId: string){
+		this._cardId = cardId;
+	}
+
+	public get cardId(): string{
+		return this._cardId;
+	}
 
 	/**
 	 * always loads card information from server to get most up-to-date data
 	 */
-	public cardStatus(cardId: string): Promise<Card> {
-		return new Promise(resolve => {
-			this.http.get('https://api.paytival.com/card_information/' + cardId)
+	public cardStatus(): Promise<Card> {
+		return new Promise((resolve, reject) => {
+			this.http.get('https://api.paytival.com/card_information/' + this._cardId)
 				.subscribe((data) => {
 					//don't need to parse json because this is done automatically
 					let card = data as Card;
 					resolve(card);
+				}, (error) => {
+					reject();
 				});
 			});
 	}	
